@@ -43,7 +43,18 @@ object cuentaCorriente {
 	
 	var property saldo = 0
 		
+	method puedeExtraer(monto){
+		return monto <= saldo
+	}
+		
+	method validarExtraccion(monto) {
+		if(not self.puedeExtraer(monto)) {
+			self.error("El saldo " + saldo  + " no alcanza para " + monto )
+		}
+	}	
+		
 	method extraer(monto) {
+		self.validarExtraccion(monto)
 		saldo -= monto		
 	}
 	

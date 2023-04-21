@@ -54,7 +54,7 @@ test "saldo insuficiente" {
 	cuentaCorriente.saldo(150)
 	
 // No se puede mantener! como lo testeo?
-    casa.mantener()
+    assert.throwsException({casa.mantener()})
 
 	assert.equals(150, cuentaCorriente.saldo())
 	assert.equals(50, casa.viveres())
